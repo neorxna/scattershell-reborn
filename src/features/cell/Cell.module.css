@@ -1,0 +1,69 @@
+
+.cell {
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    text-align: center;
+    user-select: none;
+    opacity: 100%;
+    /*transition: background-color 0.3s; */
+}
+.cell button{
+    user-select: none;
+    font-size: 1em;
+    margin: 0px;
+    padding: 0px;
+    transition: color 1s;
+}
+  
+.cellHarbour { 
+    /*color: #1081ff !important; */
+    background-color: #a8d1ff; 
+}
+
+.cellBlocked.cellHarbour button{
+    color: #a8d1ff !important; 
+}
+  
+.cellOcean { 
+    background-color: #5ca9ff;
+}
+.cellOcean button {
+    color: #5ca9ff !important; /* #1081ff !important;*/ 
+}
+  
+.cellActivated {
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #134e13;
+    color: white;
+}
+
+.cellActivated button {
+    color: white !important;
+}
+  
+.cellUnactivated {
+    cursor: pointer;
+}
+  
+.cellBlocked {
+    cursor: not-allowed;
+}
+  
+.cellDim {
+    color: #999;
+}
+
+.cellUnactivatable {
+    color: #999;
+    cursor: not-allowed;
+}
+  
+.cellSettlement { 
+  font-weight: bold;
+}
+
+.cellSpan {
+    opacity: 1;
+}

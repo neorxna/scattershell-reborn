@@ -1,58 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from 'react'
+import { IslandGame } from './features/game/IslandGame'
+import { Notes } from './features/notes/Notes'
+import './App.less'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+const styles = {
+  container: {
+    paddingTop:'5vh',
+    paddingBottom:'5vh',
+    height:'100%',
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'start',
+  },
+  notesContainer: {
+  },
+  islandGameContainer: {
+    aspectRatio: '1/1',
+  }
 }
 
-export default App;
+function App () {
+  const islandId = 'harvfn'
+
+  return (
+    <div style={styles.container}>
+      <div style={styles.islandGameContainer}>
+        <IslandGame islandId={islandId} />
+      </div>
+      <div style={styles.notesContainer}>
+        <Notes islandId={islandId} />
+      </div>
+    </div>
+  )
+}
+
+export default App
+
+/* 
+
+When an island is discovered..
+ 
+* Create cells for the island according to pattern
+ ( initialise resources, etc.)
+* Associate the new cells with the island
+* Show the island builder
+
+  When all cells have been assigned and user has confirmed,
+  * Mark the island as active (picked up by game loop)
+  * 
+
+ */

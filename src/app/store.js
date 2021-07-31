@@ -1,8 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore } from '@reduxjs/toolkit'
+
+import islandReducer from '../features/island/islandSlice'
+import cellReducer from '../features/cell/cellSlice'
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
-  },
-});
+    island: islandReducer,
+    cell: cellReducer
+  }
+})
