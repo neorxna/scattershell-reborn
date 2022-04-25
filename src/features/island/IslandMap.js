@@ -17,8 +17,7 @@ import {
 import { IslandCell } from '../cell/Cell'
 
 const styles = {
-  gridContainer: {
-  }
+  gridContainer: {}
 }
 
 export function IslandMap ({ islandId }) {
@@ -46,51 +45,42 @@ export function IslandMap ({ islandId }) {
   return !cells ? (
     <></>
   ) : (
-      <Grid
-        
-        columns={cells[0].length}
-        style={{
-          
-        }}
-      >
-        {cells.map((row, rowIndex) => (
-          <Grid.Row
-            style={{ padding: '0px', flexWrap: 'nowrap' }}
-            key={rowIndex}
-          >
-            {row.map(cell => {
-              const cellActivated = activatedCells.indexOf(cell.id) !== -1
-              const hasRemainingActivations = remainingActivations > 0
-              const canActivate = activatableCells.indexOf(cell.id) !== -1
-              const canDeactivate = deactivatableCells.indexOf(cell.id) !== -1
-              const isHarbour = harbourCells.indexOf(cell.id) !== -1
-              const isOcean = allActivated && !isHarbour && !cellActivated
+    <Grid columns={cells[0].length} style={{}}>
+      {cells.map((row, rowIndex) => (
+        <Grid.Row style={{ padding: '0px', flexWrap: 'nowrap' }} key={rowIndex}>
+          {row.map(cell => {
+            const cellActivated = activatedCells.indexOf(cell.id) !== -1
+            const hasRemainingActivations = remainingActivations > 0
+            const canActivate = activatableCells.indexOf(cell.id) !== -1
+            const canDeactivate = deactivatableCells.indexOf(cell.id) !== -1
+            const isHarbour = harbourCells.indexOf(cell.id) !== -1
+            const isOcean = allActivated && !isHarbour && !cellActivated
 
-              const showAsLink =
-                (island.confirmed && !isOcean && !isHarbour) ||
-                (cellActivated && canDeactivate) ||
-                (hasRemainingActivations && canActivate) ||
-                noneActivated
+            const showAsLink =
+              (island.confirmed && !isOcean && !isHarbour) ||
+              (cellActivated && canDeactivate) ||
+              (hasRemainingActivations && canActivate) ||
+              noneActivated
 
-              return (
-                <IslandCell
-                  {...{
-                    cell,
-                    cellActivated,
-                    canActivate,
-                    showAsLink,
-                    onCellClick,
-                    isHarbour,
-                    isOcean,
-                    allActivated,
-                    noneActivated
-                  }}
-                  key={cell.id}
-                />
-              )
-            })}
-          </Grid.Row>
-        ))}
-      </Grid>
+            return (
+              <IslandCell
+                {...{
+                  cell,
+                  cellActivated,
+                  canActivate,
+                  showAsLink,
+                  onCellClick,
+                  isHarbour,
+                  isOcean,
+                  allActivated,
+                  noneActivated
+                }}
+                key={cell.id}
+              />
+            )
+          })}
+        </Grid.Row>
+      ))}
+    </Grid>
   )
 }

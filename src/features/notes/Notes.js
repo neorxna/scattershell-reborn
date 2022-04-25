@@ -5,11 +5,11 @@ import { isMobile } from 'react-device-detect'
 const styles = {
   segmentGroup: {
     position: 'relative',
-    top:'5vh',
+    top: '5vh',
     marginLeft: '10vw',
     marginRight: '10vw',
     backgroundColor: 'white',
-    maxWidth:'320px'
+    maxWidth: '320px'
   }
 }
 

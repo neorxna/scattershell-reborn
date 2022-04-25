@@ -23,7 +23,6 @@ export default islandSlice.reducer
 
 export const { confirmIsland } = islandSlice.actions
 
-
 export const allCellsActivated = islandId => state =>
   state.island.byId[islandId].remainingActivations === 0
 

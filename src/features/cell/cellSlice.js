@@ -209,7 +209,9 @@ export const {
 export const selectCellById = state => state.cell.byId
 
 export const selectCellsByIsland = islandId_ => state =>
-  Object.values(state.cell.byId).filter(({ islandId }) => islandId === islandId_)
+  Object.values(state.cell.byId).filter(
+    ({ islandId }) => islandId === islandId_
+  )
 
 export const selectCells2d = islandId =>
   createSelector([selectCellById], cells => {

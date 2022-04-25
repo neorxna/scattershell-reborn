@@ -1,11 +1,11 @@
 export const CellTypes = {
   Undecided: '?',
-  Food: '🌱',
+  Food: '🌿',
   Materials: '🛠️',
-  Settlement: '📌',
+  Settlement: '🌱',
   Grass: '🌲',
   Lagoon: '💧',
-  Desert: '🌵',
+  Desert: '🌾',
   Mountain: '⛰️'
 }
 
