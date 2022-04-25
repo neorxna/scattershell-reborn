@@ -4,6 +4,7 @@ import styles from './Cell.module.css'
 import * as poissonProcess from 'poisson-process'
 import { yieldResourceAsync } from '../cell/cellSlice'
 import { Grid, Button, Segment } from 'semantic-ui-react'
+import { CellTypes } from '../island/properties'
 
 const extraStyles = {
   gridColumnStyle: {
@@ -14,8 +15,9 @@ const extraStyles = {
     alignItems: 'center',
     justifyContent: 'center',
     margin: '0px',
-    width: '32px',
-    height: '32px'
+    width: '30px',
+    height: '30px',
+    fontSize: '1.4em'
   }
 }
 
@@ -29,7 +31,11 @@ export function IslandCell (props) {
     cell,
     onCellClick,
     isOcean,
-    noneActivated
+    noneActivated,
+    isTopLeft,
+    isTopRight,
+    isBottomLeft,
+    isBottomRight
   } = props
 
   // todo use styled-components
@@ -42,38 +48,46 @@ export function IslandCell (props) {
     (!cellActivated && !canActivate && !noneActivated
       ? ` ${styles.cellUnactivatable}`
       : '') +
-    (cell.cellType === '🌱' ? ` ${styles.cellSettlement}` : '') +
-    (canActivate ? ` ${styles.cellCanActivate}` : '' ) +
+    (cell.cellType === CellTypes.Settlement
+      ? ` ${styles.cellSettlement}`
+      : '') +
+    (canActivate ? ` ${styles.cellCanActivate}` : '') +
     (isHarbour ? ` ${styles.cellHarbour}` : '') +
-    (isOcean ? ` ${styles.cellOcean}` : '') + 
+    (isOcean ? ` ${styles.cellOcean}` : '') +
     (noneActivated ? ` ${styles.noneActivated}` : '')
 
   return (
     <Grid.Column
       key={cell.id}
-      className={classNameStr}
-      style={{
-        ...extraStyles.gridColumnStyle
-      }}
       onClick={() => onCellClick(cell)}
       disabled={!showAsLink}
+      className={classNameStr}
+      style={{
+        transition: 'opacity 1s',
+        borderTopLeftRadius: isTopLeft ? '20%' : '0px',
+        borderTopRightRadius: isTopRight ? '20%' : '0px',
+        borderBottomLeftRadius: isBottomLeft ? '20%' : '0px',
+        borderBottomRightRadius: isBottomRight ? '20%' : '0px',
+        ...extraStyles.segmentStyle
+      }}
     >
-      <div
-        style={{
-          transition: 'opacity 1s',
-          border: '0px',
-          opacity:
+      {((canActivate && !allActivated) ||
+        isHarbour ||
+        cellActivated ||
+        (noneActivated && cell.cellType === CellTypes.Settlement)) && (
+        <span
+          style={{ opacity:
             isOcean
               ? '0'
               : cellActivated || noneActivated
               ? '1'
               : (isHarbour && allActivated) ? '0' 
               : '0.5',
-          ...extraStyles.segmentStyle
-        }}
-      >
-        {cell.cellType}
-      </div>
+          }}
+        >
+          {cell.cellType}
+        </span>
+      )}
     </Grid.Column>
   )
 }

@@ -66,10 +66,6 @@
     opacity: 0;
 }
 
-.cellCanActivate:not(.cellHarbour) { 
-    opacity: 0.5;
-}
-
 .cellUnactivatable:not(.cellHarbour):not(.cellOcean) {
     opacity: 0;
 }

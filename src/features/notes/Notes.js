@@ -1,6 +1,8 @@
+import { useSelector } from 'react-redux'
 import { Label, Segment } from 'semantic-ui-react'
 import { useNotes } from './useNotes'
 import { isMobile } from 'react-device-detect'
+import { selectRemainingActivations } from '../cell/cellSlice'
 
 const styles = {
   segmentGroup: {
@@ -9,12 +11,13 @@ const styles = {
     marginLeft: '10vw',
     marginRight: '10vw',
     backgroundColor: 'white',
-    maxWidth: '320px'
+    width: '360px'
   }
 }
 
 export function Notes ({ islandId }) {
   const { messages, notes } = useNotes(islandId)
+  const remainingActivations = useSelector(selectRemainingActivations(islandId))
 
   const messagesView = (
     <Label.Group size={isMobile ? 'small' : 'large'}>
@@ -44,18 +47,15 @@ export function Notes ({ islandId }) {
     </Label.Group>
   )
 
-  return notes.length === 0 ? (
-    <Segment raised className='messages' style={styles.segmentGroup}>
-      {messagesView}
-    </Segment>
-  ) : (
-    <Segment.Group raised className='messages' style={styles.segmentGroup}>
+  return <Segment.Group raised className='messages' style={styles.segmentGroup}>
       <Segment basic attached>
         {messagesView}
       </Segment>
       <Segment basic attached>
         {notesView}
+        {remainingActivations === 0  ? <strong>island complete!</strong> : <><strong>{ remainingActivations }</strong> tiles remaining</>}
       </Segment>
+
     </Segment.Group>
-  )
+  
 }

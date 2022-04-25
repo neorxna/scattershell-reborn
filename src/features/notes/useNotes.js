@@ -37,14 +37,11 @@ export function useNotes (islandId) {
       }
     }).length > 0
 
-  if (oneSettlementActivated || lagoonWithFourNeighbours) {
+  if (oneSettlementActivated) {
     if (oneSettlementActivated) messages.push('✔ settlement')
-    if (lagoonWithFourNeighbours) messages.push('✔ lagoon with four neighbours')
   } else {
     messages.push(
-      `need settlement (${CellTypes.Settlement})${
-        size > 2 ? ' or lagoon (💧) with four neighbours' : ''
-      }`
+      `need settlement (${CellTypes.Settlement})`
     )
   }
 
@@ -60,9 +57,9 @@ export function useNotes (islandId) {
         return activatedNeighbours(cell).length > 1
       }).length === settlements.length
     if (allHaveAdjacent) {
-      messages.push('✔ settlements have at least two neighbours')
+      messages.push('✔ two neighbours per settlement')
     } else if (settlements.length > 0) {
-      messages.push('settlements need at least two neighbours')
+      messages.push('settlements need two neighbours')
     }
   }
 

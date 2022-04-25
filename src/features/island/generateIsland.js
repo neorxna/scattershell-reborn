@@ -52,8 +52,8 @@ const buildCell = (cellType, neighbourCells) => {
   } else if (cellType === CellTypes.Desert) {
     contains = [
       randomChoice([
-        ResourceTypes.Succulents,
         ResourceTypes.BushFood,
+        ResourceTypes.Coconuts,
         null,
         null,
         null
@@ -259,11 +259,10 @@ export const generateIsland = size => {
         ...buildCell(
           randomChoice([
             CellTypes.Food,
-            CellTypes.Materials,
             CellTypes.Food,
             CellTypes.Materials,
-            CellTypes.Food,
-            CellTypes.Materials,
+            CellTypes.Desert,
+            CellTypes.Desert,
             CellTypes.Lagoon
             // CellTypes.Undecided
           ])

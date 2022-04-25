@@ -48,7 +48,7 @@ export function IslandMap ({ islandId }) {
     <Grid columns={cells[0].length} style={{}}>
       {cells.map((row, rowIndex) => (
         <Grid.Row style={{ padding: '0px', flexWrap: 'nowrap' }} key={rowIndex}>
-          {row.map(cell => {
+          {row.map((cell, colIndex) => {
             const cellActivated = activatedCells.indexOf(cell.id) !== -1
             const hasRemainingActivations = remainingActivations > 0
             const canActivate = activatableCells.indexOf(cell.id) !== -1
@@ -62,6 +62,12 @@ export function IslandMap ({ islandId }) {
               (hasRemainingActivations && canActivate) ||
               noneActivated
 
+            const isTopLeft = rowIndex === 0 && colIndex === 0
+            const isTopRight = rowIndex === 0 && colIndex === row.length - 1
+            const isBottomLeft = rowIndex === cells.length - 1 && colIndex === 0
+            const isBottomRight =
+              rowIndex === cells.length - 1 && colIndex === row.length - 1
+
             return (
               <IslandCell
                 {...{
@@ -73,7 +79,11 @@ export function IslandMap ({ islandId }) {
                   isHarbour,
                   isOcean,
                   allActivated,
-                  noneActivated
+                  noneActivated,
+                  isTopLeft,
+                  isTopRight,
+                  isBottomLeft,
+                  isBottomRight
                 }}
                 key={cell.id}
               />
