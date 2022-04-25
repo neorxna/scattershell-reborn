@@ -5,6 +5,20 @@ import * as poissonProcess from 'poisson-process'
 import { yieldResourceAsync } from '../cell/cellSlice'
 import { Grid, Button, Segment } from 'semantic-ui-react'
 
+const extraStyles = {
+  gridColumnStyle: {
+    padding: '0px'
+  },
+  segmentStyle: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: '0px',
+    width: '32px',
+    height: '32px'
+  }
+}
+
 export function IslandCell (props) {
   const {
     showAsLink,
@@ -25,7 +39,9 @@ export function IslandCell (props) {
       ? ` ${styles.cellActivated}`
       : ` ${styles.cellUnactivated}`) +
     (!showAsLink ? ` ${styles.cellBlocked}` : '') +
-    (!cellActivated && !canActivate && !noneActivated ? ` ${styles.cellUnactivatable}` : '') +
+    (!cellActivated && !canActivate && !noneActivated
+      ? ` ${styles.cellUnactivatable}`
+      : '') +
     // (settlementCell ? ' cell--settlement' : '') +
     (isHarbour ? ` ${styles.cellHarbour}` : '') +
     (isOcean ? ` ${styles.cellOcean}` : '')
@@ -35,17 +51,26 @@ export function IslandCell (props) {
       key={cell.id}
       className={classNameStr}
       style={{
-        width: `min(${Math.round(70/12)}vw, ${Math.round(70/12)}vh)`,
-        height: `min(${Math.round(70/12)}vw, ${Math.round(70/12)}vh)`,
-        padding: '0px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        ...extraStyles.gridColumnStyle
       }}
       onClick={() => onCellClick(cell)}
       disabled={!showAsLink}
     >
-      <span style={{opacity: isOcean || isHarbour ? '0.1' : cellActivated || noneActivated ? '1' : '0.5'}}>{cell.cellType}</span>
+      <div
+        style={{
+          transition: 'opacity 1s',
+          border: '0px',
+          opacity:
+            isOcean || isHarbour
+              ? '0'
+              : cellActivated || noneActivated
+              ? '1'
+              : '0.5',
+          ...extraStyles.segmentStyle
+        }}
+      >
+        {cell.cellType}
+      </div>
     </Grid.Column>
   )
 }

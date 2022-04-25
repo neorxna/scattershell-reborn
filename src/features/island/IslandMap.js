@@ -47,12 +47,10 @@ export function IslandMap ({ islandId }) {
     <></>
   ) : (
       <Grid
+        
         columns={cells[0].length}
         style={{
-
-          fontSize: `min(${Math.round(80 / island.size / 4)}vw, ${Math.round(
-            80 / island.size / 4
-          )}vh)`
+          
         }}
       >
         {cells.map((row, rowIndex) => (

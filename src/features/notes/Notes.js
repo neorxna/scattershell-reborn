@@ -9,6 +9,7 @@ const styles = {
     marginLeft: '10vw',
     marginRight: '10vw',
     backgroundColor: 'white',
+    maxWidth:'320px'
   }
 }
 

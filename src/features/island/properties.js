@@ -9,6 +9,14 @@ export const CellTypes = {
   Mountain: '⛰️'
 }
 
+/* 
+  Grasslands
+  Highlands
+  Swamp/Mangrove
+  Rainforest
+  Lagoon
+*/
+
 export const CellTypesLabel = {
   [CellTypes.Undecided]: 'undecided',
   [CellTypes.Food]: 'food',

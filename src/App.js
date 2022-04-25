@@ -18,6 +18,7 @@ const styles = {
   },
   islandGameContainer: {
     aspectRatio: '1/1',
+    maxWidth: '320px'
   }
 }
 
