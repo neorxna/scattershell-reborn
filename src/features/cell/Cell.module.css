@@ -5,17 +5,9 @@
     font-size: 2em;
     text-align: center;
     user-select: none;
-    opacity: 100%;
     /*transition: background-color 0.3s; */
 }
-.cell button{
-    user-select: none;
-    font-size: 1em;
-    margin: 0px;
-    padding: 0px;
-    transition: color 1s;
-}
-  
+
 .cellHarbour { 
     /*color: #1081ff !important; */
     background-color: #a8d1ff; 
@@ -37,6 +29,7 @@
     cursor: pointer;
     background-color: #134e13;
     color: white;
+    opacity: 1;
 }
 
 .cellActivated button {
@@ -62,8 +55,21 @@
   
 .cellSettlement { 
   font-weight: bold;
+  opacity: 1;
 }
 
 .cellSpan {
     opacity: 1;
+}
+
+.noneActivated:not(.cellSettlement) {
+    opacity: 0;
+}
+
+.cellCanActivate:not(.cellHarbour) { 
+    opacity: 0.5;
+}
+
+.cellUnactivatable:not(.cellHarbour):not(.cellOcean) {
+    opacity: 0;
 }

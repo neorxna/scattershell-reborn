@@ -42,9 +42,11 @@ export function IslandCell (props) {
     (!cellActivated && !canActivate && !noneActivated
       ? ` ${styles.cellUnactivatable}`
       : '') +
-    // (settlementCell ? ' cell--settlement' : '') +
+    (cell.cellType === '🌱' ? ` ${styles.cellSettlement}` : '') +
+    (canActivate ? ` ${styles.cellCanActivate}` : '' ) +
     (isHarbour ? ` ${styles.cellHarbour}` : '') +
-    (isOcean ? ` ${styles.cellOcean}` : '')
+    (isOcean ? ` ${styles.cellOcean}` : '') + 
+    (noneActivated ? ` ${styles.noneActivated}` : '')
 
   return (
     <Grid.Column
@@ -61,10 +63,11 @@ export function IslandCell (props) {
           transition: 'opacity 1s',
           border: '0px',
           opacity:
-            isOcean || isHarbour
+            isOcean
               ? '0'
               : cellActivated || noneActivated
               ? '1'
+              : (isHarbour && allActivated) ? '0' 
               : '0.5',
           ...extraStyles.segmentStyle
         }}

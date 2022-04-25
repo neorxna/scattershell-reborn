@@ -241,7 +241,7 @@ export const generateIsland = size => {
       }
     })
 
-  const pGrass = new Poisson([size, size], size / 8)
+  const pGrass = new Poisson([size, size], size / 12)
 
   pGrass
     .fill()
@@ -258,6 +258,10 @@ export const generateIsland = size => {
         ...cell,
         ...buildCell(
           randomChoice([
+            CellTypes.Food,
+            CellTypes.Materials,
+            CellTypes.Food,
+            CellTypes.Materials,
             CellTypes.Food,
             CellTypes.Materials,
             CellTypes.Lagoon
