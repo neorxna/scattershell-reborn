@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/scattershell/static/css/main.0c285875.chunk.css",
+    "main.js": "/scattershell/static/js/main.05ecde1e.chunk.js",
+    "main.js.map": "/scattershell/static/js/main.05ecde1e.chunk.js.map",
+    "runtime-main.js": "/scattershell/static/js/runtime-main.3bda4870.js",
+    "runtime-main.js.map": "/scattershell/static/js/runtime-main.3bda4870.js.map",
+    "static/css/2.2a83f977.chunk.css": "/scattershell/static/css/2.2a83f977.chunk.css",
+    "static/js/2.d0a32f0f.chunk.js": "/scattershell/static/js/2.d0a32f0f.chunk.js",
+    "static/js/2.d0a32f0f.chunk.js.map": "/scattershell/static/js/2.d0a32f0f.chunk.js.map",
+    "index.html": "/scattershell/index.html",
+    "static/css/2.2a83f977.chunk.css.map": "/scattershell/static/css/2.2a83f977.chunk.css.map",
+    "static/css/main.0c285875.chunk.css.map": "/scattershell/static/css/main.0c285875.chunk.css.map",
+    "static/js/2.d0a32f0f.chunk.js.LICENSE.txt": "/scattershell/static/js/2.d0a32f0f.chunk.js.LICENSE.txt",
+    "static/media/App.less": "/scattershell/static/media/charter_regular.004cc239.woff2",
+    "static/media/semantic.less": "/scattershell/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3bda4870.js",
+    "static/css/2.2a83f977.chunk.css",
+    "static/js/2.d0a32f0f.chunk.js",
+    "static/css/main.0c285875.chunk.css",
+    "static/js/main.05ecde1e.chunk.js"
+  ]
+}
