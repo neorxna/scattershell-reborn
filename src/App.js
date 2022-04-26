@@ -2,22 +2,22 @@ import React from 'react'
 import { IslandGame } from './features/game/IslandGame'
 import { Notes } from './features/notes/Notes'
 import './App.less'
+import { Grid } from 'semantic-ui-react'
 
 const styles = {
   container: {
-    paddingTop:'5vh',
-    paddingBottom:'5vh',
-    height:'100%',
+    paddingTop: '5vh',
+    paddingBottom: '5vh',
+    height: '100%',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'start',
+    justifyContent: 'start'
   },
-  notesContainer: {
-  },
+  notesContainer: {},
   islandGameContainer: {
-    aspectRatio: '1/1',
+    aspectRatio: '1/1'
   }
 }
 
@@ -25,13 +25,15 @@ function App () {
   const islandId = 'harvfn'
 
   return (
-    <div style={styles.container}>
-      <div style={styles.islandGameContainer}>
-        <IslandGame islandId={islandId} />
-      </div>
-      <div style={styles.notesContainer}>
-        <Notes islandId={islandId} />
-      </div>
+    <div style={{ width: '100%', height: '100%', padding: '1em' }}>
+      <Grid columns={2} stackable>
+        <Grid.Column style={{ display: 'flex', justifyContent: 'center' }}>
+          <IslandGame islandId={islandId} />
+        </Grid.Column>
+        <Grid.Column style={{ display: 'flex', justifyContent: 'center' }}>
+          <Notes islandId={islandId} />
+        </Grid.Column>
+      </Grid>
     </div>
   )
 }

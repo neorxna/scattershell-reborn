@@ -45,9 +45,11 @@ export function IslandMap ({ islandId }) {
   return !cells ? (
     <></>
   ) : (
-    <Grid columns={cells[0].length} style={{}}>
+    <div style={{
+      display: 'flex', padding: '0px', flexDirection: 'column', flexWrap: 'nowrap'
+    }}>
       {cells.map((row, rowIndex) => (
-        <Grid.Row style={{ padding: '0px', flexWrap: 'nowrap' }} key={rowIndex}>
+        <div style={{ display: 'flex', padding: '0px', flexWrap: 'nowrap' }} key={rowIndex}>
           {row.map((cell, colIndex) => {
             const cellActivated = activatedCells.indexOf(cell.id) !== -1
             const hasRemainingActivations = remainingActivations > 0
@@ -89,8 +91,8 @@ export function IslandMap ({ islandId }) {
               />
             )
           })}
-        </Grid.Row>
+        </div>
       ))}
-    </Grid>
+    </div>
   )
 }

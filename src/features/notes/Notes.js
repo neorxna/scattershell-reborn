@@ -6,12 +6,8 @@ import { selectRemainingActivations } from '../cell/cellSlice'
 
 const styles = {
   segmentGroup: {
-    position: 'relative',
-    top: '5vh',
-    marginLeft: '10vw',
-    marginRight: '10vw',
     backgroundColor: 'white',
-    width: '360px'
+    maxWidth: '420px'
   }
 }
 

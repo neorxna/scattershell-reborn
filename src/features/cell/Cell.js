@@ -64,10 +64,10 @@ export function IslandCell (props) {
       className={classNameStr}
       style={{
         transition: 'opacity 1s',
-        borderTopLeftRadius: isTopLeft ? '20%' : '0px',
-        borderTopRightRadius: isTopRight ? '20%' : '0px',
-        borderBottomLeftRadius: isBottomLeft ? '20%' : '0px',
-        borderBottomRightRadius: isBottomRight ? '20%' : '0px',
+        borderTopLeftRadius: isTopLeft ? '0.28rem' : '0px',
+        borderTopRightRadius: isTopRight ? '0.28rem' : '0px',
+        borderBottomLeftRadius: isBottomLeft ? '0.28rem' : '0px',
+        borderBottomRightRadius: isBottomRight ? '0.28rem' : '0px',
         ...extraStyles.segmentStyle
       }}
     >
