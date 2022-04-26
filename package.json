@@ -1,7 +1,7 @@
 {
   "name": "shellscatter",
   "version": "0.1.0",
-  "homepage": "https://neorxna.github.io/scattershell",
+  "homepage": "https://neorxna.github.io/scattershell-reborn",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
