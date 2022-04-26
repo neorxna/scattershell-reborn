@@ -1,9 +1,9 @@
 const ResourceTypes = {
   Shellfish: 'shellfish',
-  Fish: 'fish',
+  Fish: 'river fish',
   Pigs: 'pigs',
   Birds: 'birds',
-  BushFood: 'bush food',
+  BushFood: 'grubs',
   Coconuts: 'coconuts',
   RootVegetables: 'root vegetables',
   PreciousShells: 'precious shells',
